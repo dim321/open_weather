@@ -1,0 +1,46 @@
+<div>
+<div>
+<%= form_with url: v1_getCurrentWeather_path(city: :city), method: :get do |form| %>
+  <%= form.label :city, "Weather for City:" %>
+  <%= form.text_field :city, placeholder: 'City name' %>
+  <%= form.submit "Search" %>
+<% end %>
+</div>
+<br><br><hr>
+<% if @current_weather['cod'] == 200 %>
+<div>
+  <h1>
+    <%= "Results for #{@current_weather['name']}:" %>
+  </h1>
+  <h2>
+    Temperature:
+    <%= @current_weather.dig('main','temp') %>
+    C
+  </h2>
+  <h2>
+    Weather conditions:
+    <%= @current_weather['weather'][0]['description'] %>
+  </h2>
+  <h2>
+    Wind:
+    <%= @current_weather.dig('wind', 'speed') %>
+    km/h
+  </h2>
+  <h2>
+    Wind direction:
+    <%= @current_weather.dig('wind', 'deg') %>
+    degree
+  </h2>
+  <h2>
+    Pressure:
+    <%= @current_weather.dig('main','pressure') %>
+  </h2>
+  <h2>
+    Humidity:
+    <%= @current_weather.dig('main','humidity') %>
+  </h2>
+<% else %>
+  <%= @current_weather.inspect %>
+<% end %>
+</div>
+</div>
