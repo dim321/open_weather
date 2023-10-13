@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 3.2.2, Rails 7.1
 
-Things you may want to cover:
+Clone repository:
 
-* Ruby version
+`git clone git@github.com:dim321/open_weather.git`
 
-* System dependencies
+`cp .env.example .env`
 
-* Configuration
+run project in container in dev mode locally:
 
-* Database creation
+`docker-compose up`
 
-* Database initialization
+first time you need to execute
 
-* How to run the test suite
+`docker exec -it app-weather bin/setup`
 
-* Services (job queues, cache servers, search engines, etc.)
+Then you can see city weather details:
 
-* Deployment instructions
+`localhost:3000`
 
-* ...
+Also you can have response in JSON format:
+
+`http://localhost:3000/v1/getCurrentWeather.json?city=Batumi`
+
+I tried to deploy app-weather at AWS Lambda with gem Lamby,
+but unsuccessful.
+I will try to fix it at this weekend.
