@@ -24,6 +24,3 @@ Also you can have response in JSON format:
 
 `http://localhost:3000/v1/getCurrentWeather.json?city=Batumi`
 
-I tried to deploy app-weather at AWS Lambda with gem Lamby,
-but unsuccessful.
-I will try to fix it at this weekend.
